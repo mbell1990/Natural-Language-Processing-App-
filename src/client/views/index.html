@@ -8,47 +8,50 @@
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/form.css" />
     <link rel="stylesheet" href="/styles/footer.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
   </head>
-
   <body>
-    <header>
-      <div class="">Logo</div>
-      <div class="">navigation</div>
-    </header>
-
     <main>
       <section>
-        <form class="" onsubmit="return Client.handleSubmit(event)">
-          <input
-            id="name"
-            type="text"
-            name="input"
-            value=""
-            placeholder="Name"
-          />
-          <input
-            type="submit"
-            name=""
-            value="submit"
-            onclick="return Client.handleSubmit(event)"
-            onsubmit="return Client.handleSubmit(event)"
-          />
-        </form>
-      </section>
-
-      <section>
-        <strong>Form Results:</strong>
-        <div id="polarity"></div>
-        <div id="polarity-confidence"></div>
-        <div id="subjectivity"></div>
-        <div id="subjectivity-confidence"></div>
-        <div id="text"></div>
+        <div class="container">
+          <div class="grid">
+            <div class="form-result">
+            <h1 class="form-title">NLP Analyser</h1>
+            <p>
+              This Natural Language Processing app recieves a web url for an article such as a news story and performs sentiment analysis using the meaningcloud API. Paste a URL in the form below to
+              receive results.
+            </p>
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+              <input
+                id="name"
+                type="text"
+                name="input"
+                value=""
+                placeholder="Enter article url"
+                required
+              />
+              <input
+                type="submit"
+                name=""
+                value="Submit"
+                onclick="return Client.handleSubmit(event)"
+                onsubmit="return Client.handleSubmit(event)"
+              />
+            </form>
+            <div id="results"></div>
+            </div>
+          
+          <div class="form-image">
+            <img src="../media/learning/learning.svg" alt="learning image" />
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>This is a footer</p>
-    </footer>
+
 
     <!-- <script>
       // Check that service workers are supported

@@ -1,61 +1,60 @@
+import fetch from "node-fetch";
+
 function handleSubmit(event) {
   event.preventDefault();
 
   // check what text was put into the form field
   let formText = document.getElementById("name").value;
+
+  if (formText == "") {
+    alert("Please enter a URL");
+    return false;
+  }
+
   Client.checkForName(formText);
   console.log("::: Form Submitted :::");
   analyseText({ url: formText });
+  console.log({ url: formText });
 }
 
-// Post request to get data from API and send to server
-
 const analyseText = async (data = {}) => {
-  const response = await fetch(
-    "http://localhost:8081/api",
-
-    {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
+  try {
+    const response = await fetch("http://localhost:8081/api", {
+      method: "POST",
       credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      body: JSON.stringify(data), // body data type must match "Content-Type" header. Body is where you package the data request.
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => updateUI(data))
-    .catch((error) => {
-      console.log("error", error);
+      body: JSON.stringify(data),
     });
 
-  try {
-    const newData = await res.json();
-    return newData;
-  } catch (error) {}
-};
+    const responseData = await response.json();
+    const { confidence, subjectivity, irony, score_tag, image } = responseData;
 
-// Update the UI
-
-const updateUI = async (data) => {
-  const request = await fetch("/api");
-  try {
-    const allData = await request.json();
-    document.getElementById(
-      "polarity"
-    ).innerHTML = `Polarity: ${data.polarity}`;
-    document.getElementById(
-      "polarity-confidence"
-    ).innerHTML = `Polarity Confidence: ${data.polarity_confidence}`;
-    document.getElementById(
-      "subjectivity"
-    ).innerHTML = `Subjectivity: ${data.subjectivity}`;
-    document.getElementById(
-      "subjectivity-confidence"
-    ).innerHTML = `Subjectivity Confidence: ${data.subjectivity_confidence}`;
+    // Update the UI with the new data
+    updateUI({ confidence, subjectivity, irony, score_tag, image });
   } catch (error) {
     console.log("error", error);
   }
 };
 
+const updateUI = (data) => {
+  const results = document.getElementById("results");
+  results.innerHTML = `
+<h2>Results</h2>
+<div class="res" id="confidence">
+  <p>Confidence - <span class = "highlight">${data.confidence}</span></p>
+</div>
+<div class="res" id="subjectivity"> 
+  <p>Subjectivity - <span class = "highlight">${data.subjectivity}</span></p>
+</div>
+<div class="res" id="irony">
+  <p>Irony - <span class = "highlight">${data.irony}</span></p>
+</div>
+<div class="res" id="score_tag">
+  <p>Score - <span class = "highlight">${data.score_tag}</span></p>
+</div>
+</div> `;
+};
 export { handleSubmit };

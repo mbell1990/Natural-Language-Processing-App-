@@ -23,6 +23,25 @@ module.exports = {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+        },
+      },
+      {
+        ///([a-z] [0-9] {2} [a-z])\.(svg)$/i,
+        test: /\.(png|jpg|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "media/learning",
+            },
+          },
+        ],
+      },
     ],
   },
 
