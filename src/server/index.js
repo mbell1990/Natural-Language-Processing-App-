@@ -7,9 +7,10 @@ const API_KEY = process.env.API_KEY;
 const fetch = require("node-fetch");
 var path = require("path");
 const express = require("express");
-//const mockAPIResponse = require("./mockAPI.js");
 
 const app = express();
+
+const PORT = process.env.PORT || 8081;
 
 const bodyParser = require("body-parser");
 /* Middleware*/
@@ -34,8 +35,8 @@ app.get("/", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-  console.log(`Example app listening on port 8081!`);
+app.listen(PORT, function () {
+  console.log(`Example app listening on port ${PORT}`);
 });
 
 // app.get("/", function (req, res) {
