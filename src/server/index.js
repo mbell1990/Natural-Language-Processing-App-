@@ -37,7 +37,7 @@ console.log(__dirname);
 //test for render
 
 app.get("/", function (req, res) {
-  const filePath = path.resolve(__dirname, "src/client/views/index.html");
+  const filePath = path.resolve(__dirname, "../client/views/index.html");
   res.sendFile(filePath);
 });
 
