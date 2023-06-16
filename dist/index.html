@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+    <!-- <link rel="stylesheet" href="/styles/resets.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
+    <link rel="stylesheet" href="/styles/footer.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container">
+          <div class="grid">
+            <div class="form-result">
+            <h1 class="form-title">NLP Analyser</h1>
+            <p>
+              This Natural Language Processing app recieves a web url for an article such as a news story and performs sentiment analysis using the meaningcloud API. Paste a URL in the form below to
+              receive results.
+            </p>
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+              <input
+                id="name"
+                type="text"
+                name="input"
+                value=""
+                placeholder="Enter article url"
+                required
+              />
+              <input
+                type="submit"
+                name=""
+                value="Submit"
+                onclick="return Client.handleSubmit(event)"
+                onsubmit="return Client.handleSubmit(event)"
+              />
+            </form>
+            <div id="results"></div>
+            </div>
+          
+          <div class="form-image">
+            <img src="../media/learning/learning.svg" alt="learning image" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+    <!-- <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script> -->
+  <script type="text/javascript" src="bundle-01e6e81cae779577f2f2.min.js"></script></body>
+</html>
