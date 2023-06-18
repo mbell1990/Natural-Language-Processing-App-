@@ -54,33 +54,33 @@ app.listen(PORT, function () {
 // request holds all data that is involved in request
 // response used to send things back to the client
 
-// app.post("/api", async (req, res) => {
-//   console.log(req.body);
-//   const response = await fetch(
-//     `${baseURL}${API_KEY}&of=json&lang=en&model=general&url=${req.body.url}`
-//   );
-//   try {
-//     const data = await response.json();
-//     console.log(data);
-//     res.send(data);
-//   } catch (error) {
-//     console.log("error", error);
-//   }
-// });
-
-// no cors post request
 app.post("/api", async (req, res) => {
   console.log(req.body);
+  const response = await fetch(
+    `${baseURL}${API_KEY}&of=json&lang=en&model=general&url=${req.body.url}`
+  );
   try {
-    const response = await fetch(
-      `${baseURL}${API_KEY}&of=json&lang=en&model=general&url=${req.body.url}`,
-      { mode: "no-cors" }
-    );
-    const data = await response.text();
+    const data = await response.json();
     console.log(data);
     res.send(data);
   } catch (error) {
     console.log("error", error);
-    res.status(500).send("An error occurred");
   }
 });
+
+// no cors post request
+// app.post("/api", async (req, res) => {
+//   console.log(req.body);
+//   try {
+//     const response = await fetch(
+//       `${baseURL}${API_KEY}&of=json&lang=en&model=general&url=${req.body.url}`,
+//       { mode: "no-cors" }
+//     );
+//     const data = await response.text();
+//     console.log(data);
+//     res.send(data);
+//   } catch (error) {
+//     console.log("error", error);
+//     res.status(500).send("An error occurred");
+//   }
+// });
