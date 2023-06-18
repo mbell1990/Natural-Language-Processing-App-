@@ -19,7 +19,7 @@ function handleSubmit(event) {
 
 const analyseText = async (data = {}) => {
   try {
-    const response = await fetch("http://localhost:8081/api", {
+    const response = await fetch("http://${process.env.PORT}/api", {
       method: "POST",
       credentials: "same-origin",
       headers: {
