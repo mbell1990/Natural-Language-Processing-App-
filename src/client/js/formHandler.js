@@ -19,7 +19,7 @@ function handleSubmit(event) {
 
 const analyseText = async (data = {}) => {
   try {
-    const response = await fetch("http://${process.env.PORT}/api", {
+    const response = await fetch("https://nlp-analyser.onrender.com./api", {
       method: "POST",
       credentials: "same-origin",
       headers: {
