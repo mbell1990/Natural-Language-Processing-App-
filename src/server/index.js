@@ -10,7 +10,7 @@ const express = require("express");
 
 const app = express();
 
-const PORT = process.env.PORT || 10000;
+//const PORT = process.env.PORT || 8081;
 
 const bodyParser = require("body-parser");
 /* Middleware*/
@@ -42,8 +42,8 @@ app.get("/", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(PORT, function () {
-  console.log(`Example app listening on port ${PORT}`);
+app.listen(8081, function () {
+  console.log(`Example app listening on port 8081`);
 });
 
 // app.get("/", function (req, res) {
@@ -67,20 +67,3 @@ app.post("/api", async (req, res) => {
     console.log("error", error);
   }
 });
-
-// no cors post request
-// app.post("/api", async (req, res) => {
-//   console.log(req.body);
-//   try {
-//     const response = await fetch(
-//       `${baseURL}${API_KEY}&of=json&lang=en&model=general&url=${req.body.url}`,
-//       { mode: "no-cors" }
-//     );
-//     const data = await response.text();
-//     console.log(data);
-//     res.send(data);
-//   } catch (error) {
-//     console.log("error", error);
-//     res.status(500).send("An error occurred");
-//   }
-// });
