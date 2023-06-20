@@ -1,10 +1,10 @@
-## Udacity Project - Evaluate a new article with Natural Language Processing
+# Udacity Project - Evaluate a new article with Natural Language Processing
 
-# Link to live project
+## Link to live project
 
 https://nlp-analyser.onrender.com
 
-# Getting started
+## Getting started
 
 Clone the project and install all dependencies as follows
 
