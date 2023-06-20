@@ -10,7 +10,7 @@ Clone the project and install all dependencies as follows
 
 ` $ npm install`
 
-# Project Instructions
+## Project Instructions
 
 ### run project in production mode
 Generate the dist files and then start server at port 8081
